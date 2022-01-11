@@ -13,5 +13,10 @@ namespace MyTransportApp {
         public Form1() {
             InitializeComponent();
         }
+
+        private void searchConnectionsButton_Click(object sender, EventArgs e) {
+            string startingStation = startingStationTextBox.Text;
+            string endStation = endStationTextBox.Text;
+        }
     }
 }
