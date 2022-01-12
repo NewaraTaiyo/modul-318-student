@@ -14,7 +14,7 @@ namespace TarnsportApp {
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Connections());
+            Application.Run(new FromToConnections());
         }
     }
 }

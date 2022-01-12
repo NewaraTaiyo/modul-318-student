@@ -31,10 +31,19 @@ namespace TransportApp {
             this.whereIsMyStationButton = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.stationsNearbyListBox = new System.Windows.Forms.ListBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.searchRadiusNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.currentStationTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.searchButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchRadiusNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -118,13 +127,85 @@ namespace TransportApp {
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.searchButton);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.currentStationTextBox);
+            this.groupBox1.Controls.Add(this.stationsNearbyListBox);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.searchRadiusNumericUpDown);
             this.groupBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(692, 271);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Stationen in der Nähe";
+            // 
+            // stationsNearbyListBox
+            // 
+            this.stationsNearbyListBox.FormattingEnabled = true;
+            this.stationsNearbyListBox.ItemHeight = 15;
+            this.stationsNearbyListBox.Location = new System.Drawing.Point(8, 24);
+            this.stationsNearbyListBox.Name = "stationsNearbyListBox";
+            this.stationsNearbyListBox.Size = new System.Drawing.Size(337, 184);
+            this.stationsNearbyListBox.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(662, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(24, 15);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "km";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(543, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 15);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Radius:";
+            // 
+            // searchRadiusNumericUpDown
+            // 
+            this.searchRadiusNumericUpDown.Location = new System.Drawing.Point(594, 22);
+            this.searchRadiusNumericUpDown.Name = "searchRadiusNumericUpDown";
+            this.searchRadiusNumericUpDown.Size = new System.Drawing.Size(61, 23);
+            this.searchRadiusNumericUpDown.TabIndex = 1;
+            this.searchRadiusNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // currentStationTextBox
+            // 
+            this.currentStationTextBox.Location = new System.Drawing.Point(380, 95);
+            this.currentStationTextBox.Name = "currentStationTextBox";
+            this.currentStationTextBox.Size = new System.Drawing.Size(275, 23);
+            this.currentStationTextBox.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(380, 77);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(90, 15);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Aktuelle Station";
+            // 
+            // searchButton
+            // 
+            this.searchButton.Location = new System.Drawing.Point(580, 124);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(75, 23);
+            this.searchButton.TabIndex = 7;
+            this.searchButton.Text = "Suchen";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // StationsNearby
             // 
@@ -140,6 +221,9 @@ namespace TransportApp {
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchRadiusNumericUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -153,5 +237,12 @@ namespace TransportApp {
         private System.Windows.Forms.Button whereIsMyStationButton;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.NumericUpDown searchRadiusNumericUpDown;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox stationsNearbyListBox;
+        private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox currentStationTextBox;
     }
 }

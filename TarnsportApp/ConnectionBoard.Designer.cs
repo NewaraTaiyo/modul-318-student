@@ -32,8 +32,8 @@ namespace TransportApp {
             this.stationBoardDataGridView = new System.Windows.Forms.DataGridView();
             this.destenationStation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.departureTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.currentStationTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.currentStationComboBox = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stationBoardDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -120,16 +120,9 @@ namespace TransportApp {
             // 
             // departureTime
             // 
+            this.departureTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.departureTime.HeaderText = "Abfahrt";
             this.departureTime.Name = "departureTime";
-            // 
-            // currentStationTextBox
-            // 
-            this.currentStationTextBox.Location = new System.Drawing.Point(50, 56);
-            this.currentStationTextBox.Name = "currentStationTextBox";
-            this.currentStationTextBox.Size = new System.Drawing.Size(589, 23);
-            this.currentStationTextBox.TabIndex = 3;
-            this.currentStationTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.currentStationTextBox_KeyUp);
             // 
             // label1
             // 
@@ -140,13 +133,23 @@ namespace TransportApp {
             this.label1.TabIndex = 4;
             this.label1.Text = "Aktuelle Station";
             // 
+            // currentStationComboBox
+            // 
+            this.currentStationComboBox.FormattingEnabled = true;
+            this.currentStationComboBox.Location = new System.Drawing.Point(50, 53);
+            this.currentStationComboBox.Name = "currentStationComboBox";
+            this.currentStationComboBox.Size = new System.Drawing.Size(589, 23);
+            this.currentStationComboBox.TabIndex = 14;
+            this.currentStationComboBox.TextChanged += new System.EventHandler(this.currentStationComboBox_TextChanged);
+            this.currentStationComboBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.currentStationTextBox_KeyUp);
+            // 
             // ConnectionBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(698, 735);
+            this.Controls.Add(this.currentStationComboBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.currentStationTextBox);
             this.Controls.Add(this.stationBoardDataGridView);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ConnectionBoard";
@@ -166,9 +169,9 @@ namespace TransportApp {
         private System.Windows.Forms.Button connectionsButton;
         private System.Windows.Forms.Button whereIsMyStationButton;
         private System.Windows.Forms.DataGridView stationBoardDataGridView;
-        private System.Windows.Forms.TextBox currentStationTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn destenationStation;
         private System.Windows.Forms.DataGridViewTextBoxColumn departureTime;
+        private System.Windows.Forms.ComboBox currentStationComboBox;
     }
 }

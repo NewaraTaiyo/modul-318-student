@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TarnsportApp;
 
 namespace TransportApp {
     public partial class WhereIsMyStation : Form {
@@ -24,8 +25,8 @@ namespace TransportApp {
         }
 
         private void connectionsButton_Click(object sender, EventArgs e) {
-            ConnectionBoard connectionBoardForm = new ConnectionBoard();
-            reasingForms(connectionBoardForm);
+            FromToConnections fromToConnectionsForm = new FromToConnections();
+            reasingForms(fromToConnectionsForm);
         }
 
         private void whereIsMyStationButton_Click(object sender, EventArgs e) {

@@ -3,6 +3,7 @@
     using FluentAssertions;
     using SwissTransport.Core;
     using SwissTransport.Models;
+    using System;
     using Xunit;
 
     public class TransportTest
@@ -15,7 +16,7 @@
         }
 
         [Fact]
-        public void Locations()
+        public void Locations_Sursee()
         {
             Stations stations = this.testee.GetStations("Sursee,");
 
@@ -23,19 +24,40 @@
         }
 
         [Fact]
-        public void StationBoard()
+        public void StationBoardWithId()
         {
-            StationBoardRoot stationBoard = this.testee.GetStationBoard("Sursee", "8502007");
+            StationBoardRoot stationBoard = this.testee.GetStationBoardWithId("Sursee", "8502007");
 
             stationBoard.Should().NotBeNull();
         }
 
         [Fact]
-        public void Connections()
+        public void Connections_Sursee_Luzern()
         {
             Connections connections = this.testee.GetConnections("Sursee", "Luzern");
 
             connections.Should().NotBeNull();
+        }
+
+        [Fact]
+        public void StationBoard_Sursee() {
+            StationBoardRoot stationBoard = this.testee.GetStationBoard("Sursee");
+
+            stationBoard.Should().NotBeNull();
+        }
+
+        [Fact]
+        public void ConnectionsWithLimit_Sursee_Luzern() {
+            Connections connections = this.testee.GetConnectionsWithLimit("Sursee", "Luzern", 17);
+
+            connections.ConnectionList.Count.Should().Be(17);
+        }
+
+        [Fact]
+        public void ConnectionsWithLimitAndTime_Sursee_Luzern() {
+            Connections connections = this.testee.GetConnectionsWithLimitAndTime("Sursee", "Luzern", 11, DateTime.Now.AddDays(1));
+
+            connections.ConnectionList.Count.Should().Be(11);
         }
     }
 }

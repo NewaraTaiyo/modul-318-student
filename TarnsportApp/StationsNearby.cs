@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SwissTransport.Models;
 using SwissTransport.Core;
+using TarnsportApp;
 
 namespace TransportApp {
     public partial class StationsNearby : Form {
@@ -16,7 +17,7 @@ namespace TransportApp {
             InitializeComponent();
             webBrowser = new WebBrowser();
             webBrowser.Navigate("http://www.google.com/maps");
-            this.splitContainer1.Panel1.Container.Add(webBrowser);
+            //this.splitContainer1.Panel1.Container.Add(webBrowser);
         }
 
         ITransport transport = new Transport();
@@ -38,8 +39,8 @@ namespace TransportApp {
         }
 
         private void connectionsButton_Click(object sender, EventArgs e) {
-            ConnectionBoard connectionBoardForm = new ConnectionBoard();
-            reasingForms(connectionBoardForm);
+            FromToConnections fromToConnectionsForm = new FromToConnections();
+            reasingForms(fromToConnectionsForm);
         }
 
         private void whereIsMyStationButton_Click(object sender, EventArgs e) {
@@ -53,5 +54,13 @@ namespace TransportApp {
             this.Close();
         }
 
+        private void searchButton_Click(object sender, EventArgs e) {
+            stationsNearbyListBox.Items.Clear();
+            foreach (Station station in transport.GetStations(currentStationTextBox.Text).StationList) {
+                if(station.Distance < (double)searchRadiusNumericUpDown.Value * 1000) {
+                    stationsNearbyListBox.Items.Add(station.Name);
+                }
+            }
+        }
     }
 }

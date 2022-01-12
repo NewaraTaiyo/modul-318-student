@@ -1,5 +1,7 @@
 ﻿namespace SwissTransport.Core
 {
+    using System;
+    using System.Collections.Generic;
     using System.Threading.Tasks;
     using SwissTransport.Models;
 
@@ -7,8 +9,14 @@
     {
         Stations GetStations(string query);
 
-        StationBoardRoot GetStationBoard(string station, string id);
+        StationBoardRoot GetStationBoard(string station);
 
-        Connections GetConnections(string fromStation, string toStation, decimal limit);
+        StationBoardRoot GetStationBoardWithId(string station, string id);
+
+        Connections GetConnections(string fromStation, string toStation);
+
+        Connections GetConnectionsWithLimit(string fromStation, string toStation, decimal limit);
+
+        Connections GetConnectionsWithLimitAndTime(string fromStation, string toStation, decimal limit, DateTime dateTimeOfTravle);
     }
 }

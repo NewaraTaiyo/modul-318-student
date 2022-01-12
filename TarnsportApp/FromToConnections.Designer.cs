@@ -1,6 +1,6 @@
 ﻿
 namespace TarnsportApp {
-    partial class Connections {
+    partial class FromToConnections {
         /// <summary>
         ///  Required designer variable.
         /// </summary>
@@ -31,8 +31,6 @@ namespace TarnsportApp {
             this.stationsNearbyButton = new System.Windows.Forms.Button();
             this.connectionsButton = new System.Windows.Forms.Button();
             this.whereIsMyStationButton = new System.Windows.Forms.Button();
-            this.startStationTextBox = new System.Windows.Forms.TextBox();
-            this.endStationTextBox = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.amountOfConectionsNumericUpDown = new System.Windows.Forms.NumericUpDown();
@@ -45,9 +43,16 @@ namespace TarnsportApp {
             this.searchConnectionsButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.hourNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.minuteNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.startStationComboBox = new System.Windows.Forms.ComboBox();
+            this.endStationComboBox = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.amountOfConectionsNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.connectionsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hourNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minuteNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -112,20 +117,6 @@ namespace TarnsportApp {
             this.whereIsMyStationButton.UseVisualStyleBackColor = true;
             this.whereIsMyStationButton.Click += new System.EventHandler(this.whereIsMyStationButton_Click);
             // 
-            // startStationTextBox
-            // 
-            this.startStationTextBox.Location = new System.Drawing.Point(36, 38);
-            this.startStationTextBox.Name = "startStationTextBox";
-            this.startStationTextBox.Size = new System.Drawing.Size(636, 23);
-            this.startStationTextBox.TabIndex = 1;
-            // 
-            // endStationTextBox
-            // 
-            this.endStationTextBox.Location = new System.Drawing.Point(36, 87);
-            this.endStationTextBox.Name = "endStationTextBox";
-            this.endStationTextBox.Size = new System.Drawing.Size(636, 23);
-            this.endStationTextBox.TabIndex = 2;
-            // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(462, 176);
@@ -180,7 +171,7 @@ namespace TarnsportApp {
             this.connectionsDataGridView.Location = new System.Drawing.Point(36, 249);
             this.connectionsDataGridView.Name = "connectionsDataGridView";
             this.connectionsDataGridView.RowTemplate.Height = 25;
-            this.connectionsDataGridView.Size = new System.Drawing.Size(636, 386);
+            this.connectionsDataGridView.Size = new System.Drawing.Size(636, 371);
             this.connectionsDataGridView.TabIndex = 6;
             // 
             // startStation
@@ -221,7 +212,7 @@ namespace TarnsportApp {
             this.searchConnectionsButton.Location = new System.Drawing.Point(524, 125);
             this.searchConnectionsButton.Name = "searchConnectionsButton";
             this.searchConnectionsButton.Size = new System.Drawing.Size(148, 23);
-            this.searchConnectionsButton.TabIndex = 7;
+            this.searchConnectionsButton.TabIndex = 3;
             this.searchConnectionsButton.Text = "Verbindungen suchen";
             this.searchConnectionsButton.UseVisualStyleBackColor = true;
             this.searchConnectionsButton.Click += new System.EventHandler(this.searchConnectionsButton_Click);
@@ -244,11 +235,68 @@ namespace TarnsportApp {
             this.label3.TabIndex = 9;
             this.label3.Text = "Endstation";
             // 
-            // Connections
+            // hourNumericUpDown
+            // 
+            this.hourNumericUpDown.Location = new System.Drawing.Point(575, 205);
+            this.hourNumericUpDown.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
+            this.hourNumericUpDown.Name = "hourNumericUpDown";
+            this.hourNumericUpDown.Size = new System.Drawing.Size(38, 23);
+            this.hourNumericUpDown.TabIndex = 10;
+            // 
+            // minuteNumericUpDown
+            // 
+            this.minuteNumericUpDown.Location = new System.Drawing.Point(634, 205);
+            this.minuteNumericUpDown.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
+            this.minuteNumericUpDown.Name = "minuteNumericUpDown";
+            this.minuteNumericUpDown.Size = new System.Drawing.Size(38, 23);
+            this.minuteNumericUpDown.TabIndex = 11;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(618, 207);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(10, 15);
+            this.label4.TabIndex = 12;
+            this.label4.Text = ":";
+            // 
+            // startStationComboBox
+            // 
+            this.startStationComboBox.FormattingEnabled = true;
+            this.startStationComboBox.Location = new System.Drawing.Point(36, 35);
+            this.startStationComboBox.Name = "startStationComboBox";
+            this.startStationComboBox.Size = new System.Drawing.Size(636, 23);
+            this.startStationComboBox.TabIndex = 13;
+            this.startStationComboBox.TextChanged += new System.EventHandler(this.comboBox_TextChanged);
+            // 
+            // endStationComboBox
+            // 
+            this.endStationComboBox.FormattingEnabled = true;
+            this.endStationComboBox.Location = new System.Drawing.Point(36, 87);
+            this.endStationComboBox.Name = "endStationComboBox";
+            this.endStationComboBox.Size = new System.Drawing.Size(636, 23);
+            this.endStationComboBox.TabIndex = 14;
+            this.endStationComboBox.TextChanged += new System.EventHandler(this.endStationComboBox_TextChanged);
+            this.endStationComboBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.endStationComboBox_KeyUp);
+            // 
+            // FromToConnections
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(698, 735);
+            this.Controls.Add(this.endStationComboBox);
+            this.Controls.Add(this.startStationComboBox);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.minuteNumericUpDown);
+            this.Controls.Add(this.hourNumericUpDown);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.searchConnectionsButton);
@@ -256,14 +304,14 @@ namespace TarnsportApp {
             this.Controls.Add(this.amountOfConectionsNumericUpDown);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.endStationTextBox);
-            this.Controls.Add(this.startStationTextBox);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "Connections";
+            this.Name = "FromToConnections";
             this.Text = "Form1";
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.amountOfConectionsNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.connectionsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hourNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minuteNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,8 +324,6 @@ namespace TarnsportApp {
         private System.Windows.Forms.Button stationsNearbyButton;
         private System.Windows.Forms.Button connectionsButton;
         private System.Windows.Forms.Button whereIsMyStationButton;
-        private System.Windows.Forms.TextBox startStationTextBox;
-        private System.Windows.Forms.TextBox endStationTextBox;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown amountOfConectionsNumericUpDown;
@@ -290,6 +336,11 @@ namespace TarnsportApp {
         private System.Windows.Forms.DataGridViewTextBoxColumn departurePlatform;
         private System.Windows.Forms.DataGridViewTextBoxColumn departureTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn timeDuration;
+        private System.Windows.Forms.NumericUpDown hourNumericUpDown;
+        private System.Windows.Forms.NumericUpDown minuteNumericUpDown;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox startStationComboBox;
+        private System.Windows.Forms.ComboBox endStationComboBox;
     }
 }
 
